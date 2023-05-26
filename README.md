@@ -4,7 +4,7 @@ Your personal accountant for all things ICP.
 
 This tool can generate:
 
-1. **A balance sheet**, containing all your ICP assets. Example:
+1. **A balance sheet**, containing all your ICP assets, for any duration. Example:
 
 ```
                                                                                           ||        2023-05-21
@@ -24,7 +24,7 @@ This tool can generate:
  Net:                                                                                     ||   ICP200.00000000
 ```
 
-2. **Income statement**, containing how much ICP you've received, minted, and paid. Example:
+2. **Income statement**, containing how much ICP you've received, minted, and paid, for any duration. Example:
 ```
                                                                                || 2021-05-01..2023-05-21
 ===============================================================================++========================
