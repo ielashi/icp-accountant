@@ -1,0 +1,16 @@
+fields block_height, parent_hash, block_hash, transaction_hash, sender, sender_alias, receiver, receiver_alias, transfer_type, amount_sent, amount_received, fee, memo, created_at
+
+date %created_at
+date-format %Y-%m-%d %H:%M:%S
+
+account1 %sender_alias
+account2 %receiver_alias
+account3 expenses:icp:fee
+
+amount1-out %amount_sent
+amount2-in %amount_received
+amount3-in %fee
+
+currency ICP
+
+comment block_height: %block_height, parent_hash: %parent_hash, tx_hash: %transaction_hash, memo: %memo
