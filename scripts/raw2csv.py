@@ -8,6 +8,9 @@ MINTER_ACCOUNT_ALIAS = 'revenue:icp:minter'
 # Load inbound account identifiers.
 inbound_accounts = dict([tuple(reversed(a.strip().split(','))) for a in open('accounts/inbound_accounts.txt').readlines()[1:]])
 
+# Load outbound account identifiers.
+outbound_accounts = dict([tuple(reversed(a.strip().split(','))) for a in open('accounts/outbound_accounts.txt').readlines()[1:]])
+
 own_accounts = {}
 first = True
 for own_account in open('accounts/own_accounts.txt').readlines():
@@ -56,6 +59,8 @@ for account_file in account_files:
             receiver_alias = 'expenses:icp:%s' % receiver
             if receiver in own_accounts:
                 receiver_alias = 'assets:icp:%s:%s' % (own_accounts[receiver][0], receiver)
+            elif receiver in outbound_accounts:
+                receiver_alias = "expenses:icp:%s" % outbound_accounts[receiver]
 
             amount_received = int(block['amount'])
 
