@@ -1,6 +1,8 @@
 set -euo pipefail
 
 JOURNAL=icp.journal
+FROM_DATE="$1"
+TO_DATE="$2"
 
 # remove the journal to trigger a full reimport
 mkdir -p journal
@@ -14,5 +16,5 @@ hledger -f journal/$JOURNAL import journal/transactions.csv --rules-file icp.rul
 
 # Generate reports
 mkdir -p reports
-hledger -f journal/$JOURNAL incomestatement > reports/income_statement.txt
-hledger -f journal/$JOURNAL balancesheet > reports/balance_sheet.txt
+hledger -f journal/$JOURNAL incomestatement  --begin=$FROM_DATE --end=$TO_DATE > reports/income_statement_${FROM_DATE}_${TO_DATE}.txt
+hledger -f journal/$JOURNAL balancesheet  --begin=$FROM_DATE --end=$TO_DATE > reports/balance_sheet_${FROM_DATE}_${TO_DATE}.txt
